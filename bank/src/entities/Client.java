@@ -2,7 +2,12 @@ package entities;
 
 public class Client {
     private String name;
-    private int cpf;
+    private String cpf; // identification uniq
+
+    public Client(String name, String cpf){
+        this.name = name;
+        this.cpf = cpf;
+    }
 
     public String getName() {
         return name;
@@ -12,11 +17,11 @@ public class Client {
         this.name = name;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }
