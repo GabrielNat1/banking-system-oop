@@ -29,4 +29,27 @@ public class Bank {
         }
         return false;
     }
+
+    public boolean withdraw(int accountNumber, double amount){
+        BankAccount account = findAccount(accountNumber);
+        if (account != null && amount > 0 && account.getBalance() >= amount){
+            account.withdraw(amount);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean transfer(int fromAccount, int toAccount, double amount) {
+        BankAccount source = findAccount(fromAccount);
+        BankAccount target = findAccount(toAccount);
+
+        if (source != null && target != null && amount > 0 && source.getBalance() >= amount) {
+            source.withdraw(amount);
+            target.deposit(amount);
+            return true;
+        }
+        return false;
+    }
+
+
 }
