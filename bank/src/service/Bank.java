@@ -54,7 +54,7 @@ public class Bank {
     public void listAccounts() {
         for (int i = 0; i < count; i++) {
             BankAccount acc = accounts[i];
-            System.out.println("Conta: " + acc.getNumber() + " - Cliente: " + acc.getClient().getName() + " - Saldo: " + acc.getBalance());
+            System.out.println("Count: " + acc.getNumber() + " - Cliente: " + acc.getClient().getName() + " - Saldo: " + acc.getBalance());
         }
     }
 }
