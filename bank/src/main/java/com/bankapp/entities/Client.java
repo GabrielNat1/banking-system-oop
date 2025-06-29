@@ -1,4 +1,4 @@
-package entities;
+package main.java.com.bankapp.entities;
 
 public class Client {
     private String name;

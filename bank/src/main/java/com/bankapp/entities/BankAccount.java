@@ -1,4 +1,4 @@
-package entities;
+package main.java.com.bankapp.entities;
 
 public class BankAccount {
     private double number;

@@ -1,8 +1,8 @@
-package application;
+package main.java.com.bankapp.application;
 
-import entities.BankAccount;
-import entities.Client;
-import service.Bank;
+import main.java.com.bankapp.entities.BankAccount;
+import main.java.com.bankapp.entities.Client;
+import main.java.com.bankapp.service.Bank;
 
 import java.util.Scanner;
 

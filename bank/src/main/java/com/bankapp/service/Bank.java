@@ -1,6 +1,6 @@
-package service;
+package main.java.com.bankapp.service;
 
-import entities.BankAccount;
+import main.java.com.bankapp.entities.BankAccount;
 
 public class Bank {
     private BankAccount[] accounts = new BankAccount[100];
