@@ -56,8 +56,13 @@ public class Main {
                     int number = scanner.nextInt();
                     scanner.nextLine();
 
+                    System.out.print("Tipo de conta (1 - Corrente, 2 - Poupança): ");
+                    int tipoConta = scanner.nextInt();
+                    scanner.nextLine();
+                    BankAccount.AccountType type = (tipoConta == 2) ? BankAccount.AccountType.POUPANCA : BankAccount.AccountType.CORRENTE;
+
                     Client client = new Client(name, cpf);
-                    BankAccount account = new BankAccount(number, client);
+                    BankAccount account = new BankAccount(number, client, type);
                     bank.addAccount(account);
                     break;
 

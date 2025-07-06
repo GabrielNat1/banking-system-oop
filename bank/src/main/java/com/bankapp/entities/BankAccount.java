@@ -4,15 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount {
+    public enum AccountType { CORRENTE, POUPANCA }
+
     private double number;
     private double balance;
     private Client client;
     private List<Transaction> transactions = new ArrayList<>();
+    private AccountType type;
 
     public BankAccount(int number, Client client) {
+        this(number, client, AccountType.CORRENTE);
+    }
+
+    public BankAccount(int number, Client client, AccountType type) {
         this.number = number;
         this.balance = 0.0;
         this.client = client;
+        this.type = type;
     }
 
     public double getNumber() {
@@ -29,6 +37,10 @@ public class BankAccount {
 
     public List<Transaction> getTransactions() {
         return transactions;
+    }
+
+    public AccountType getType() {
+        return type;
     }
 
     public void deposit(double amount) {
