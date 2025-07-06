@@ -2,6 +2,7 @@
 
 When running the program, the following menu is shown:
 
+```bash
 === Banco Console ===
 
 Create account
@@ -19,6 +20,7 @@ View transaction history
 Update client CPF
 
 Exit
+```
 
 ## 🧪 Sample Flow
 
