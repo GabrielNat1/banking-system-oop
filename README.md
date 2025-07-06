@@ -6,6 +6,6 @@ It leverages object-oriented programming principles to provide functionalities s
 This project serves as an educational tool for beginners looking to practice Java fundamentals and OOP concepts in a practical context.
 
 📁 Reference Files:
-- [Features](./features.md)
-- [Usage](./usage.md)
-- [Technologies](./technologies.md)
+- [Features](./docs/features.md)
+- [Usage](./docs/usage.md)
+- [Technologies](./docs/technologies.md)
