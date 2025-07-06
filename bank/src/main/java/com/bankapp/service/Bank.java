@@ -1,6 +1,7 @@
 package main.java.com.bankapp.service;
 
 import main.java.com.bankapp.entities.BankAccount;
+import main.java.com.bankapp.entities.Transaction;
 
 public class Bank {
     private BankAccount[] accounts = new BankAccount[100];
@@ -25,6 +26,7 @@ public class Bank {
         BankAccount account = findAccount(accountNumber);
         if (account != null && amount > 0) {
             account.deposit(amount);
+            account.addTransaction(new Transaction("DEPOSITO", amount, "Depósito realizado"));
             return true;
         }
         return false;
