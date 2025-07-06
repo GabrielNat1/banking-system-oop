@@ -20,6 +20,7 @@ public class Main {
             System.out.println("4. Transferir");
             System.out.println("5. Listar contas");
             System.out.println("6. Ver histórico de transações");
+            System.out.println("7. Remover conta");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -120,6 +121,17 @@ public class Main {
                         }
                     } else {
                         System.out.println("Conta não encontrada.");
+                    }
+                    break;
+
+                case 7:
+                    System.out.print("Número da conta para remover: ");
+                    int accNumRemove = scanner.nextInt();
+                    scanner.nextLine();
+                    if (bank.removeAccount(accNumRemove)) {
+                        System.out.println("Conta removida com sucesso!");
+                    } else {
+                        System.out.println("Conta não encontrada ou erro na remoção.");
                     }
                     break;
 

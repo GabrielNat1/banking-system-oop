@@ -56,6 +56,20 @@ public class Bank {
         return false;
     }
 
+    public boolean removeAccount(int number) {
+        for (int i = 0; i < count; i++) {
+            if (accounts[i].getNumber() == number) {
+                for (int j = i; j < count - 1; j++) {
+                    accounts[j] = accounts[j + 1];
+                }
+                accounts[count - 1] = null;
+                count--;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void listAccounts() {
         for (int i = 0; i < count; i++) {
             BankAccount acc = accounts[i];
