@@ -22,6 +22,7 @@ public class Main {
             System.out.println("6. Ver histórico de transações");
             System.out.println("7. Remover conta");
             System.out.println("8. Atualizar nome do cliente");
+            System.out.println("9. Atualizar CPF do cliente");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -156,6 +157,33 @@ public class Main {
                         String newName = scanner.nextLine();
                         accUpdate.getClient().setName(newName);
                         System.out.println("Nome atualizado com sucesso!");
+                    } else {
+                        System.out.println("Conta não encontrada.");
+                    }
+                    break;
+
+                case 9:
+                    System.out.print("Número da conta para atualizar CPF: ");
+                    int accNumCpf = scanner.nextInt();
+                    scanner.nextLine();
+                    BankAccount accCpf = bank.findAccount(accNumCpf);
+                    if (accCpf != null) {
+                        String newCpf;
+                        while (true) {
+                            System.out.print("Novo CPF do cliente (ou digite 'exit' para cancelar): ");
+                            newCpf = scanner.nextLine();
+                            if (newCpf.equalsIgnoreCase("exit")) {
+                                System.out.println("Atualização de CPF cancelada.");
+                                break;
+                            }
+                            if (Client.isValidCpf(newCpf)) {
+                                accCpf.getClient().setCpf(newCpf);
+                                System.out.println("CPF atualizado com sucesso!");
+                                break;
+                            } else {
+                                System.out.println("CPF inválido! Tente novamente.");
+                            }
+                        }
                     } else {
                         System.out.println("Conta não encontrada.");
                     }

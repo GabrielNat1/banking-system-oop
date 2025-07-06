@@ -21,8 +21,12 @@ public class Client {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public boolean setCpfValidated(String cpf) {
+        if (isValidCpf(cpf)) {
+            this.cpf = cpf;
+            return true;
+        }
+        return false;
     }
 
     public static boolean isValidCpf(String cpf) {
