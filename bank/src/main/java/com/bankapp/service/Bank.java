@@ -36,6 +36,7 @@ public class Bank {
         BankAccount account = findAccount(accountNumber);
         if (account != null && amount > 0 && account.getBalance() >= amount){
             account.withdraw(amount);
+            account.addTransaction(new Transaction("SAQUE", amount, "Saque realizado"));
             return true;
         }
         return false;
