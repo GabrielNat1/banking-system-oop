@@ -24,4 +24,10 @@ public class Client {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public static boolean isValidCpf(String cpf) {
+        // A valid CPF must be 11 digits long
+        if (cpf == null) return false;
+        return cpf.matches("\\d{11}");
+    }
 }
