@@ -1,8 +1,8 @@
 package com.bankapp.application;
 
-import main.java.com.bankapp.entities.BankAccount;
-import main.java.com.bankapp.entities.Client;
-import main.java.com.bankapp.service.Bank;
+import com.bankapp.entities.BankAccount;
+import com.bankapp.entities.Client;
+import com.bankapp.service.Bank;
 
 import java.util.Scanner;
 
@@ -19,6 +19,7 @@ public class Main {
             System.out.println("3. Sacar");
             System.out.println("4. Transferir");
             System.out.println("5. Listar contas");
+            System.out.println("6. Ver histórico de transações");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -91,6 +92,30 @@ public class Main {
 
                 case 5:
                     bank.listAccounts();
+                    break;
+
+                case 6:
+                    System.out.print("Número da conta para ver histórico: ");
+                    int accNumHist = scanner.nextInt();
+                    scanner.nextLine();
+                    BankAccount accHist = bank.findAccount(accNumHist);
+                    if (accHist != null) {
+                        System.out.println("Histórico de transações da conta " + accNumHist + ":");
+                        if (accHist.getTransactions().isEmpty()) {
+                            System.out.println("Nenhuma transação encontrada.");
+                        } else {
+                            accHist.getTransactions().forEach(tx -> {
+                                System.out.println(
+                                    tx.getDateTime() + " - " +
+                                    tx.getType() + " - " +
+                                    tx.getAmount() + " - " +
+                                    tx.getDescription()
+                                );
+                            });
+                        }
+                    } else {
+                        System.out.println("Conta não encontrada.");
+                    }
                     break;
 
                 case 0:

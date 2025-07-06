@@ -1,6 +1,5 @@
 package com.bankapp.entities;
 
-import main.java.com.bankapp.entities.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +13,6 @@ public class BankAccount {
         this.number = number;
         this.balance = 0.0;
         this.client = client;
-    }
-
-    public BankAccount(int number, main.java.com.bankapp.entities.Client client) {
     }
 
     public double getNumber() {
