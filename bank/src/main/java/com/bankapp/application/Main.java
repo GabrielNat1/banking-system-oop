@@ -23,6 +23,7 @@ public class Main {
             System.out.println("7. Remover conta");
             System.out.println("8. Atualizar nome do cliente");
             System.out.println("9. Atualizar CPF do cliente");
+            System.out.println("10. Buscar conta por CPF");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -186,6 +187,22 @@ public class Main {
                         }
                     } else {
                         System.out.println("Conta não encontrada.");
+                    }
+                    break;
+
+                case 10:
+                    System.out.print("Digite o CPF para buscar: ");
+                    String searchCpf = scanner.nextLine();
+                    boolean found = false;
+                    for (int i = 0; i < 100; i++) {
+                        BankAccount acc = bank.findAccount(i);
+                        if (acc != null && acc.getClient().getCpf().equals(searchCpf)) {
+                            System.out.println("Conta encontrada: " + acc.getNumber() + " - Cliente: " + acc.getClient().getName() + " - Saldo: " + acc.getBalance());
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Nenhuma conta encontrada para o CPF informado.");
                     }
                     break;
 

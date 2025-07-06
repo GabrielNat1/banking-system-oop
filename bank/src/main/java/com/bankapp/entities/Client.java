@@ -21,6 +21,14 @@ public class Client {
         return cpf;
     }
 
+    public boolean setCpf(String cpf) {
+        if (isValidCpf(cpf)) {
+            this.cpf = cpf;
+            return true;
+        }
+        return false;
+    }
+
     public boolean setCpfValidated(String cpf) {
         if (isValidCpf(cpf)) {
             this.cpf = cpf;
@@ -34,4 +42,5 @@ public class Client {
         if (cpf == null) return false;
         return cpf.matches("\\d{11}");
     }
+
 }
