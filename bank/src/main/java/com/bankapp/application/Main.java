@@ -1,4 +1,4 @@
-package main.java.com.bankapp.application;
+package com.bankapp.application;
 
 import main.java.com.bankapp.entities.BankAccount;
 import main.java.com.bankapp.entities.Client;
