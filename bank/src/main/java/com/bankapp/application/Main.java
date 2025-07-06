@@ -24,6 +24,7 @@ public class Main {
             System.out.println("8. Atualizar nome do cliente");
             System.out.println("9. Atualizar CPF do cliente");
             System.out.println("10. Buscar conta por CPF");
+            System.out.println("11. Aplicar rendimento em contas poupança");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -209,6 +210,21 @@ public class Main {
                     if (!found) {
                         System.out.println("Nenhuma conta encontrada para o CPF informado.");
                     }
+                    break;
+
+                case 11:
+                    System.out.print("Informe a taxa de rendimento (ex: 0.005 para 0,5%): ");
+                    double taxa = scanner.nextDouble();
+                    scanner.nextLine();
+                    int countRend = 0;
+                    for (int i = 0; i < 100; i++) {
+                        BankAccount acc = bank.findAccount(i);
+                        if (acc != null && acc.getType() == BankAccount.AccountType.POUPANCA) {
+                            acc.aplicarRendimento(taxa);
+                            countRend++;
+                        }
+                    }
+                    System.out.println("Rendimento aplicado em " + countRend + " conta(s) poupança.");
                     break;
 
                 case 0:

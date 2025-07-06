@@ -60,4 +60,12 @@ public class BankAccount {
         }
         return false;
     }
+
+    public void aplicarRendimento(double taxa) {
+        if (this.type == AccountType.POUPANCA && taxa > 0) {
+            double rendimento = balance * taxa;
+            balance += rendimento;
+            addTransaction(new Transaction("RENDIMENTO", rendimento, "Rendimento aplicado na conta poupança"));
+        }
+    }
 }
