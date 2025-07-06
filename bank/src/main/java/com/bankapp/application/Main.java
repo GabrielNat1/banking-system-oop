@@ -21,6 +21,7 @@ public class Main {
             System.out.println("5. Listar contas");
             System.out.println("6. Ver histórico de transações");
             System.out.println("7. Remover conta");
+            System.out.println("8. Atualizar nome do cliente");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -31,11 +32,21 @@ public class Main {
                     System.out.println("Nome do cliente: ");
                     String name = scanner.nextLine();
 
-                    System.out.println("CPF do cliente: ");
-                    String cpf = scanner.nextLine();
-
-                    if (!Client.isValidCpf(cpf)) {
-                        System.out.println("CPF inválido! Conta não criada.");
+                    String cpf;
+                    while (true) {
+                        System.out.println("CPF do cliente (ou digite 'exit' para cancelar): ");
+                        cpf = scanner.nextLine();
+                        if (cpf.equalsIgnoreCase("exit")) {
+                            System.out.println("Criação de conta cancelada.");
+                            break;
+                        }
+                        if (Client.isValidCpf(cpf)) {
+                            break;
+                        } else {
+                            System.out.println("CPF inválido! Tente novamente.");
+                        }
+                    }
+                    if (cpf.equalsIgnoreCase("exit")) {
                         break;
                     }
 
@@ -132,6 +143,21 @@ public class Main {
                         System.out.println("Conta removida com sucesso!");
                     } else {
                         System.out.println("Conta não encontrada ou erro na remoção.");
+                    }
+                    break;
+
+                case 8:
+                    System.out.print("Número da conta para atualizar nome: ");
+                    int accNumUpdate = scanner.nextInt();
+                    scanner.nextLine();
+                    BankAccount accUpdate = bank.findAccount(accNumUpdate);
+                    if (accUpdate != null) {
+                        System.out.print("Novo nome do cliente: ");
+                        String newName = scanner.nextLine();
+                        accUpdate.getClient().setName(newName);
+                        System.out.println("Nome atualizado com sucesso!");
+                    } else {
+                        System.out.println("Conta não encontrada.");
                     }
                     break;
 
