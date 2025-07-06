@@ -49,6 +49,8 @@ public class Bank {
         if (source != null && target != null && amount > 0 && source.getBalance() >= amount) {
             source.withdraw(amount);
             target.deposit(amount);
+            source.addTransaction(new Transaction("TRANSFERENCIA", amount, "Transferência enviada para conta " + toAccount));
+            target.addTransaction(new Transaction("TRANSFERENCIA", amount, "Transferência recebida da conta " + fromAccount));
             return true;
         }
         return false;
