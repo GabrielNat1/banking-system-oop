@@ -33,6 +33,11 @@ public class Main {
                     System.out.println("CPF do cliente: ");
                     String cpf = scanner.nextLine();
 
+                    if (!Client.isValidCpf(cpf)) {
+                        System.out.println("CPF inválido! Conta não criada.");
+                        break;
+                    }
+
                     System.out.print("Número da conta: ");
                     int number = scanner.nextInt();
                     scanner.nextLine();
